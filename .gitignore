@@ -1,0 +1,9 @@
+*.exe
+*.pkg
+*.pt
+*.toc
+*.pyz
+./dist/*
+./build/*
+./venv/*
+./venv/*
