@@ -7,13 +7,15 @@ import sys
 
 sys.path.append(os.path.abspath("./ContrastiveUnpairedTranslation"))
 sys.path.append(os.path.abspath("./SuperPoint"))
-
+from PIL import Image
 print(sys.path)
 from SuperPoint.SuperpointFunctions import *
 from SuperPoint.SuperpointFunctions import *
 from ContrastiveUnpairedTranslation import cut_funtions, util
 import time
 import argparse
+import numpy as np
+
 
 if __name__ == '__main__':
     theparser = argparse.ArgumentParser(description='runs unsupervised registration pipeline')
@@ -37,18 +39,27 @@ if __name__ == '__main__':
     # input_image = "D:/datasets/Image_registration/230123NH-77995rqivU/trainA/p1_wA1_t1_m1010_c0_z1_l1_o0.png"
     image_1 = args_glob.img1_path
     image_2 = args_glob.img2_path
-
+    # load models
     m = cut_funtions.load_model(cut_weights_name)
     sp_m = load_tensorflow_model(sp_weights_name)
-    t = cut_funtions.convert_data_to_tensor(image_2)
+    #image processing
+    img_size = (256, 256)
+
+    image2 = Image.open(image_2)
+    image2 = image2.resize(img_size)
+    t = cut_funtions.convert_data_to_tensor(image2)
     r = cut_funtions.inference(m, t)
     res_img = util.util.tensor2im(r)
-    img_size = (256, 256)
+
     start = time.time()
     i1 = cv2.imread(image_1, cv2.IMREAD_COLOR)
     img1, img1_orig = preprocess_image(i1, img_size)
     img2, img2_orig = preprocess_image(res_img, img_size)
-    res = compute_superpoint(img1, img2)
+    res = compute_superpoint(img2, img1)
     end = time.time()
     print(end - start)
     print(res)
+
+    wp1 = cv2.warpAffine(np.asarray(image2)[:,:,::-1], res, img_size)
+    overlay_SUPER = cv2.addWeighted(img1_orig, 0.5, wp1, 0.5, 0.7)
+    cv2.imwrite("SP_rigid.png", overlay_SUPER)
