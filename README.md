@@ -5,16 +5,25 @@ This repository is created for Unsupervised multimodal image registration with d
 
 <details>
 <summary>Install instructions </summary>
+
 ## Setup a python enviroment
 create a virutal enviroment with python version 3.6
 
-activate the virtualenv
-pip install  -r requirements.txt
+Activate the virtualenv, and 
 
+```
+pip install  -r requirements.txt
+```
 ## download models
 Download models for cut and SuperPoint
 
-## download exmaple images and preprocess them
+## Images
+
+Use the example images in the Images/A and Images/B folder
+
+or download the full datasets from
+https://zenodo.org/record/8162985
+and preprocess them
 
 </details>
 
@@ -34,8 +43,10 @@ Image B path
 
 ### Example
 
-'''
+```
+
 python3 run_pipeline.py "./models/cut/cut_unaligned_resize/" "./models/sp/sp_v6/" "./Images/A/p1_wA1_t1_m9_c1_z0_l1_o0_1.png" "Images/B/p1_wA1_t1_m9_c1_z0_l1_o0_1.png"
-'''
+
+```
 
 </details>
