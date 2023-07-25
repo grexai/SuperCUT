@@ -5,8 +5,8 @@
 *.pyz
 *.pth
 *.pb
-./models/
-./dist/
+./models/*
+./dist/*
 ./build/
 ./venv/*
 ./venv/*
