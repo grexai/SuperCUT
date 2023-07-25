@@ -1,7 +1,9 @@
-# Readme for unsupervised image registration inference
+# Readme for Unsupervised image registration inference
+
+This repository is for multimodal microscopy image registration
 
 
-This repository is created for Unsupervised multimodal image registration with deep learning for biomedical microscopy 
+
 
 <details>
 <summary>Install instructions </summary>
@@ -14,8 +16,10 @@ Activate the virtualenv, and
 ```
 pip install  -r requirements.txt
 ```
+
 ## download models
-Download models for cut and SuperPoint
+Download models for cut and SuperPoint, and place them into "./models/cut" and ".models/sp/"
+ respectively
 
 ## Images
 
@@ -34,10 +38,10 @@ and preprocess them
 ## Run
 
 Start the pipeline with arguments:
-Cut model path: where latest_net.G is located
+Cut model path: where latest_net_G.pb is located
 SuperPoint model path, where saved_model.pb is located
-Image A path
-Image B path
+Image A path: in the article referred as modality 1
+Image B path: in the article reffered as modality 2
 
 
 
