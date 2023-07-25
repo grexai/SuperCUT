@@ -5,6 +5,7 @@
 *.pyz
 *.pth
 *.pb
+checkpoints/
 models/*
 dist/*
 build/
