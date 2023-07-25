@@ -9,15 +9,16 @@ This repository is for multimodal microscopy image registration
 <summary>Install instructions </summary>
 
 ## Setup a python enviroment
-create a virutal enviroment with python version 3.6
 
-Activate the virtualenv, and 
+Create a virutal enviroment with python version 3.6
+
+Activate the virtualenv, and  run 
 
 ```
 pip install  -r requirements.txt
 ```
 
-## download models
+## Download models
 Download models for cut and SuperPoint, and place them into "./models/cut" and ".models/sp/"
  respectively
 
