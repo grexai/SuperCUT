@@ -12,6 +12,7 @@ build/
 venv/
 SuperPoint/__pychache__/
 SuperPoint/exper/
+SuperPoint/notebooks/
 ContrastiveUnpairedTranslation/checkpoints/
 ContrastiveUnpairedTranslation/datasets/
 ContrastiveUnpairedTranslation/results/
