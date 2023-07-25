@@ -3,7 +3,10 @@
 *.pt
 *.toc
 *.pyz
-./dist/*
-./build/*
+*.pth
+*.pb
+models/
+./dist/
+./build/
 ./venv/*
 ./venv/*
