@@ -10,3 +10,9 @@ models/*
 dist/*
 build/
 venv/
+SuperPoint/__pychache__/
+SuperPoint/exper/
+ContrastiveUnpairedTranslation/checkpoints/
+ContrastiveUnpairedTranslation/datasets/
+ContrastiveUnpairedTranslation/results/
+ContrastiveUnpairedTranslation/__pychache__/
