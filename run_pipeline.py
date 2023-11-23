@@ -45,18 +45,26 @@ if __name__ == '__main__':
     #image processing
     img_size = (256, 256)
 
+    start = time.time()
     image2 = Image.open(image_2)
     image2 = image2.resize(img_size)
     t = cut_funtions.convert_data_to_tensor(image2)
     r = cut_funtions.inference(m, t)
     res_img = util.util.tensor2im(r)
 
-    start = time.time()
     i1 = cv2.imread(image_1, cv2.IMREAD_COLOR)
     img1, img1_orig = preprocess_image(i1, img_size)
     img2, img2_orig = preprocess_image(res_img, img_size)
     res = compute_superpoint(img2, img1)
     end = time.time()
+    listH = res.tolist()
+    base1,fname_1 = os.path.split(img1_file)
+    fname_1, ext1 = os.path.splitext(fname_1)
+    base2, fname_2 = os.path.split(img1_file)
+    fname_2, ext2 = os.path.splitext(fname_2)
+    with open("./" + fname_1 + '_' + fname_2 + '.json', 'w', encoding='utf-8') as f:
+        json.dump(res, f, indent=2)
+
     print(f"inference time: {end - start}")
     print(f"result transformation matrix:{res}")
     wp1 = cv2.warpAffine(np.asarray(image2)[:, :, ::-1], res, img_size)
@@ -64,3 +72,4 @@ if __name__ == '__main__':
     cv2.imwrite("SP_rigid.png", overlay_SUPER)
     cv2.imshow("Overlay of the registered images", overlay_SUPER)
     cv2.waitKey(0)
+

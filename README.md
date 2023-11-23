@@ -5,7 +5,7 @@ This repository is for multimodal microscopy image registration
 
 
 
-<details>
+
 <summary>Install instructions </summary>
 
 ## Setup a python enviroment
@@ -30,9 +30,7 @@ or download the full datasets from
 https://zenodo.org/record/8162985
 and preprocess them
 
-</details>
 
-<details>
 <summary>Run</summary>
 
 
@@ -54,4 +52,3 @@ python3 run_pipeline.py "./models/cut/cut_unaligned_resize/" "./models/sp/sp_v6/
 
 ```
 
-</details>
